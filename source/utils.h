@@ -13,7 +13,7 @@
 #ifndef UTILS_H
 # define UTILS_H
 
-# include <mlx.h>
+# include "../minilibx-linux/mlx.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>

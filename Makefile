@@ -3,7 +3,10 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 
 # Linker flags
-MLXFLAGS = -lmlx -lXext -lX11
+#MLXFLAGS = -lmlx -lXext -lX11
+MLX_DIR = ./minilibx-linux
+MLX = $(MLX_DIR)/libmlx.a
+MLXFLAGS = $(MLX) -lXext -lX11
 
 # Project name (executable)
 NAME = so_long
@@ -30,12 +33,15 @@ INCLUDES = -I$(LIBFT_DIR)
 # Rule for making the executable
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(LIBFT) $(MLX) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT) $(PRINTF_LIB) $(MLXFLAGS) $(INCLUDES)
 
 # Rule for making the libft library
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
+
+$(MLX):
+	$(MAKE) -C $(MLX_DIR)
 
 # Object files rule
 %.o: %.c
