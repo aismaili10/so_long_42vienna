@@ -73,5 +73,5 @@ Example:
 
 Checklist:
 - [ ] Rectangular
-- [ ] Perimeter walls
+- [ ] Perimeter walls - outer border of map must be all `1`
 - [ ] 1 `P`, 1 `E`, >=1 `C`
