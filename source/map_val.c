@@ -79,6 +79,8 @@ static int	ft_read(t_game *game, int i)
 
 static void	check_map(t_game *game)
 {
+	if (game->cols >= 75)
+		fail_message_map(RED"Error\nInvalid map size"RESETC, game);
 	if (!allowed_elements(game->map))
 		fail_message_map(RED"Error\nInvalid map elements"RESETC, game);
 	if (!closed_walls(game->map, game->rows))
@@ -95,8 +97,8 @@ void	map_validity(t_game *game)
 	game->mal_flag = 0;
 	game->line_flag = 0;
 	game->i = ft_read(game, game->i);
-	if (game->i <= 2)
-		fail_message_map(RED"Error\nEmpty/Invalid map"RESETC, game);
+	if (game->i <= 2 || game->i >= 75)
+		fail_message_map(RED"Error\nEmpty/Invalid map size"RESETC, game);
 	if (!nline(game->line))
 		fail_message_map(RED"Error\ninvalid nl in map"RESETC, game);
 	game->map = ft_split(game->line, '\n');
