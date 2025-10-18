@@ -74,4 +74,4 @@ Example:
 Checklist:
 - [ ] Rectangular
 - [ ] Perimeter walls
-- [ ] 1 `P`, >=1 `E`, >=1 `C`
+- [ ] 1 `P`, 1 `E`, >=1 `C`
